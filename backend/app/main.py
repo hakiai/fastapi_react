@@ -34,6 +34,6 @@ def read_index(request: Request):
     return FileResponse(path)
 
 # FIXME: 疎通確認用コード
-@app.post("/test/")
+@app.post("/test")
 def post_test(request: Request):
-    return JSONResponse(status_code=200, content={"message": "successful POST"})
+    return JSONResponse(status_code=200, content={"message": "POST is successful"})

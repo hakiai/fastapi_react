@@ -16,6 +16,7 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=postgres_db
       - POSTGRES_HOST=db
+      - MODE=development
     ports:
       - "8000:8000"
 
