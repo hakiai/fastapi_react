@@ -1,0 +1,36 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    links:
+      - db
+    environment:
+      - MODE=development
+    volumes:
+      - ./backend:/backend
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres_db
+      - POSTGRES_HOST=db
+    ports:
+      - "8000:8000"
+
+  db:
+    image: postgres:13.3
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres_db
+    ports:
+      - "15432:5432"
+    restart: always
+    volumes:
+      - database:/var/lib/postgresql/data
+
+volumes:
+  database:
+    driver: local
