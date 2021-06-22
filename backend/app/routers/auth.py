@@ -62,6 +62,7 @@ async def login(
     except HTTPException as exc:
         return HTTPException(status_code=400, detail=exc.detail)
 
+# FIXME: 認証周りの疎通確認用コード(必要なければ削除)
 @router.get("/users/me")
 def get_current_user(Authorize: AuthJWT = Depends()):
     try:
