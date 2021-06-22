@@ -11,3 +11,4 @@ engine = create_engine(DB_URI, echo=True)
 Base = declarative_base()
 
 Session = sessionmaker(bind=engine)
+session = Session()
