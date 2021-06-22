@@ -67,8 +67,8 @@ async def login(
 def get_current_user(Authorize: AuthJWT = Depends()):
     try:
         Authorize.jwt_required()
-        hoge = Authorize.get_jwt_subject()
-        return {"user": hoge}
+        user_id = Authorize.get_jwt_subject()
+        return {"user_id": user_id}
 
     except HTTPException as exc:
         return HTTPException(status_code=400, detail=exc.details)

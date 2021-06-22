@@ -13,7 +13,7 @@ export const HomePage: React.FC = () => {
       <button
         onClick={() => {
           readUserMe().then((data: any) => {
-            console.log(data)
+            console.log(data.data)
           })
         }}
       >
